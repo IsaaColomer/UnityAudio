@@ -8268,19 +8268,6 @@ Transform:
   m_Father: {fileID: 5451902711715371422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3719545994290042098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4675541312017580836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.86, y: 6.05, z: 11.32}
-  m_Center: {x: 0, y: 0.96, z: 0}
 --- !u!33 &3723533093340869525
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8982,7 +8969,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451902711715371422}
-  - component: {fileID: 3719545994290042098}
   m_Layer: 3
   m_Name: medievalHouse
   m_TagString: Untagged
@@ -9512,9 +9498,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4675541312017580836}
-  m_LocalRotation: {x: 0.021047955, y: -0.8951968, z: 0.073807254, w: 0.43901283}
-  m_LocalPosition: {x: 50.02, y: 5.97, z: 80.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0026683218, y: -0.030668331, z: 0.000081871665, w: 0.99952614}
+  m_LocalPosition: {x: 79.31, y: 6.17, z: 60.73}
+  m_LocalScale: {x: 1.5922, y: 1.5922, z: 1.5922}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3715111717556607954}
@@ -9571,7 +9557,7 @@ Transform:
   - {fileID: 558843674855474441}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 8.663, y: -127.633, z: 1.572}
+  m_LocalEulerAnglesHint: {x: 0.306, y: -3.515, z: 0}
 --- !u!1 &5556521079661117372
 GameObject:
   m_ObjectHideFlags: 0
