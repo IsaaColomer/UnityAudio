@@ -5,7 +5,10 @@ using UnityEngine;
 public class StepsAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-    public AudioClip[] clips;
+    public AudioClip[] clipsGrass;
+    public AudioClip[] clipsWater;
+    public AudioClip[] clipsWood;
+    public AudioClip clip;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -16,12 +19,28 @@ public class StepsAudio : MonoBehaviour
     }
     public void PlayStep()
     {
-        AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip);
     }
 
-    public AudioClip GetRandomClip()
+    //public AudioClip GetRandomClip()
+    //{
+    //    //return clips[Random.Range(0, clips.Length)];
+    //}
+
+    public void OnCollisionEnter(Collision collision)
     {
-        return clips[Random.Range(0, clips.Length)];
+        
+        if(collision.transform.tag == "Grass")
+        {
+            clip = clipsGrass[Random.Range(0, clipsGrass.Length)];
+        }
+        if (collision.transform.tag == "Water")
+        {
+            clip = clipsWater[Random.Range(0, clipsGrass.Length)];
+        }
+        if (collision.transform.tag == "Wood")
+        {
+            clip = clipsWood[Random.Range(0, clipsGrass.Length)];
+        }
     }
 }

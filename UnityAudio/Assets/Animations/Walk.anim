@@ -54,21 +54,21 @@ AnimationClip:
   - time: 0
     functionName: PlayStep
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: eee1e77f465f22e4b9566cd1b21bfb09, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5
     functionName: PlayStep
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: eee1e77f465f22e4b9566cd1b21bfb09, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1
     functionName: PlayStep
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: eee1e77f465f22e4b9566cd1b21bfb09, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
