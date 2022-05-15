@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5;
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
-
+    public Animator animator;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -36,7 +36,14 @@ public class PlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        if(x != 0 || z != 0)
+        {
+            animator.Play("Walk");
+        }
+        else
+        {
+            animator.Play("Idle");
+        }
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
