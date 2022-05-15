@@ -5,45 +5,48 @@ using UnityEngine.Audio;
 
 public class HouseScript : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public List<AudioMixerGroup> mixers;
 
     void Awake()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
+        //audioSource = gameObject.GetComponent<AudioSource>();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource.volume = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         for (int i = 0; i < mixers.Count; i++)
         {
-            mixers[i].audioMixer.SetFloat("Volume " + i.ToString(), -20.00f);
+            if(i != 4)
+            {
+                mixers[i].audioMixer.SetFloat("Volume " + i.ToString(), -20.00f);
+                Debug.Log(mixers[i].name);
+            }
+            
         }
 
+        mixers[4].audioMixer.SetFloat("Volume 4", 6.00f);
         audioSource.Play();
-        audioSource.volume = 1;
+        Debug.Log("La cansionsita se esta reprodusiendo");
+        
+        
     }
 
     public void OnTriggerExit(Collider other)
     {
         for (int i = 0; i < mixers.Count; i++)
         {
-            mixers[i].audioMixer.SetFloat("Volume " + i.ToString(), 0f);
+            if(i != 4)
+            {
+                mixers[i].audioMixer.SetFloat("Volume " + i.ToString(), 0f);
+                Debug.Log(mixers[i].name);
+            }
+            else
+            {
+                mixers[i].audioMixer.SetFloat("Volume " + i.ToString(), -20.00f);
+            }
         }
 
         audioSource.Stop();
-        audioSource.volume = 0;
+        
     }
 }
