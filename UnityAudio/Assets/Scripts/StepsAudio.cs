@@ -8,7 +8,15 @@ public class StepsAudio : MonoBehaviour
     public AudioClip[] clipsGrass;
     public AudioClip[] clipsWater;
     public AudioClip[] clipsWood;
-    public AudioClip clip;
+    [SerializeField]
+    private AudioClip clipGrass;
+    [SerializeField]
+    private AudioClip clipWater;
+    [SerializeField]
+    private AudioClip clipWood;
+    public Transform raycastOrigin;
+    public float distanceToFloor;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,30 +25,38 @@ public class StepsAudio : MonoBehaviour
     {
 
     }
-    public void PlayStep()
-    {
-        audioSource.PlayOneShot(clip);
-    }
 
     //public AudioClip GetRandomClip()
     //{
     //    //return clips[Random.Range(0, clips.Length)];
     //}
 
-    public void OnCollisionEnter(Collision collision)
+    public void DoRaycast()
     {
-        
-        if(collision.transform.tag == "Grass")
+        RaycastHit hit;
+
+        if(Physics.Raycast(raycastOrigin.position, -raycastOrigin.up, out hit, distanceToFloor))
         {
-            clip = clipsGrass[Random.Range(0, clipsGrass.Length)];
+            Debug.DrawLine(raycastOrigin.position, hit.point, Color.black);
+
+            switch (hit.transform.tag)
+            {
+                case "Grass":
+                    clipGrass = clipsGrass[Random.Range(0, clipsGrass.Length)];
+                    audioSource.PlayOneShot(clipGrass);
+                    break;
+                case "Water":
+                    clipWater = clipsWater[Random.Range(0, clipsWater.Length)];
+                    audioSource.PlayOneShot(clipWater);
+                    break;
+                case "Wood":
+                    clipWood = clipsWood[Random.Range(0, clipsWood.Length)];
+                    audioSource.PlayOneShot(clipWood);
+                    break;
+                default:
+                    break;
+            }
         }
-        if (collision.transform.tag == "Water")
-        {
-            clip = clipsWater[Random.Range(0, clipsGrass.Length)];
-        }
-        if (collision.transform.tag == "Wood")
-        {
-            clip = clipsWood[Random.Range(0, clipsGrass.Length)];
-        }
+
     }
 }
